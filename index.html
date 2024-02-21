@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Turn.js responsive page flip</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+    
+  ></script>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+      <script type="text/javascript" src="https://rkei0.csb.app/turn.min.js"></script>
+
+  <style id="compiled-css" type="text/css">
+    html,
+body {
+  background-color: #efefef;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.wrapper {
+  align-items: center;
+  display: flex;
+  height: 90%;
+  justify-content: center;
+  margin: 5%;
+  width: 90%;
+}
+
+.aspect {
+  padding-bottom: 70%;
+  position: relative;
+  width: 100%;
+}
+
+.aspect-inner {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.flipbook {
+  height: 100%;
+  transition: margin-left 0.25s ease-out;
+  width: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.flipbook .page {
+  height: 100%;
+  width: 100%;
+}
+
+.flipbook .page img {
+  max-width: 100%;
+  height: 100%;
+}
+
+
+    /* EOS */
+  </style>
+
+  <script id="insert"></script>
+
+</head>
+<body>
+    <div class="wrapper">
+  <div class="aspect">
+    <div class="aspect-inner">
+      <div class="flipbook" id="flipbook">
+        <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/01.jpg" draggable="false" alt="" /></div>
+        <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/02.jpg" draggable="false" alt="" /></div>
+        <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/03.jpg" draggable="false" alt="" /></div>
+        <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/04.jpg" draggable="false" alt="" /></div>
+        <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/05.jpg" draggable="false" alt="" /></div>
+        <div class="page"><img src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/06.jpg" draggable="false" alt="" /></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script type="text/javascript">//<![CDATA[
+
+
+var flipbookEL = document.getElementById('flipbook');
+
+window.addEventListener('resize', function (e) {
+	flipbookEL.style.width = '';
+  flipbookEL.style.height = '';
+  $(flipbookEL).turn('size', flipbookEL.clientWidth, flipbookEL.clientHeight);
+});
+
+$(flipbookEL).turn({
+    autoCenter: true
+});
+
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "4syLdmza"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+
+</body>
+</html>
