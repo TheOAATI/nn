@@ -13,113 +13,6 @@
   <script
     type="text/javascript"
     src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
-    	// Zoom.js
-
-	$('.magazine-viewport').zoom({
-		flipbook: $('.magazine'),
-
-		max: function() { 
-			
-			return largeMagazineWidth()/$('.magazine').width();
-
-		}, 
-
-		when: {
-
-			swipeLeft: function() {
-
-				$(this).zoom('flipbook').turn('next');
-
-			},
-
-			swipeRight: function() {
-				
-				$(this).zoom('flipbook').turn('previous');
-
-			},
-
-			resize: function(event, scale, page, pageElement) {
-
-				if (scale==1)
-					loadSmallPage(page, pageElement);
-				else
-					loadLargePage(page, pageElement);
-
-			},
-
-			zoomIn: function () {
-
-				$('.thumbnails').hide();
-				$('.made').hide();
-				$('.magazine').removeClass('animated').addClass('zoom-in');
-				$('.zoom-icon').removeClass('zoom-icon-in').addClass('zoom-icon-out');
-				
-				if (!window.escTip && !$.isTouch) {
-					escTip = true;
-
-					$('<div />', {'class': 'exit-message'}).
-						html('<div>Press ESC to exit</div>').
-							appendTo($('body')).
-							delay(2000).
-							animate({opacity:0}, 500, function() {
-								$(this).remove();
-							});
-				}
-			},
-
-			zoomOut: function () {
-
-				$('.exit-message').hide();
-				$('.thumbnails').fadeIn();
-				$('.made').fadeIn();
-				$('.zoom-icon').removeClass('zoom-icon-out').addClass('zoom-icon-in');
-
-				setTimeout(function(){
-					$('.magazine').addClass('animated').removeClass('zoom-in');
-					resizeViewport();
-				}, 0);
-
-			}
-		}
-	});
-
-	// Zoom event
-
-	if ($.isTouch)
-		$('.magazine-viewport').bind('zoom.doubleTap', zoomTo);
-	else
-		$('.magazine-viewport').bind('zoom.tap', zoomTo);
-
-
-	// Using arrow keys to turn the page
-
-	$(document).keydown(function(e){
-
-		var previous = 37, next = 39, esc = 27;
-
-		switch (e.keyCode) {
-			case previous:
-
-				// left arrow
-				$('.magazine').turn('previous');
-				e.preventDefault();
-
-			break;
-			case next:
-
-				//right arrow
-				$('.magazine').turn('next');
-				e.preventDefault();
-
-			break;
-			case esc:
-				
-				$('.magazine-viewport').zoom('zoomOut');	
-				e.preventDefault();
-
-			break;
-		}
-	});
   ></script>
     <link rel="stylesheet" type="text/css" href="/css/normalize.css">
 
@@ -223,9 +116,16 @@ $(flipbookEL).turn({
 });
 
 
-
   //]]></script>
-
+<script>
+	$('#flipbookEL').click(function(e) {
+    var pos = {
+        x: e.pageX - $(this).offset().left,
+        y: e.pageY - $(this).offset().top
+    };
+    $('#flipbookEL').zoom('zoomIn', pos);
+});
+</script>
   <script>
     // tell the embed parent frame the height of the content
     if (window.parent && window.parent.parent){
