@@ -7,18 +7,40 @@
 <body>
   <img/>
   <div class="container">
-    <h1>My Responsive Page</h1>
     <div class="iframe-wrapper">
         <iframe class="frame1" src="base.html" style="border: 1px solid #0B0B0B;"></iframe>
         </div>
+    <a href="emathm.pdf">Download</a>
   </div>
 </body>
 </html>
 <style>
+.cursor
+{
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    transition: 0.1s;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+@font-face {
+  font-family: myFirstFont;
+  src: url(StretchPro.otf);
+}
+a{
+  position: relative;
+  margin-bottom: 5px;
+  font-family: myFirstFont;
+  color: aliceblue;
+  text-decoration:none
+}
 body{
     background-color: #000000;
-}
-img {
+    overflow: hidden;
 }
 .frame1{
     background: url(new.svg);
