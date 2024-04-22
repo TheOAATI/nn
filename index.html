@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <a href="your_pdf.pdf" id="pdfLink">Open PDF</a>
-
+  <a href="emathm.pdf" id="pdfLink">Open PDF</a>
 <script>
-document.getElementById('emathm.pdf').addEventListener('click', function(event) {
+document.getElementById('pdfLink').addEventListener('click', function(event) {
     event.preventDefault(); // Prevent default link behavior (useful if showing a confirmation dialog)
     alert("PDF will be opened. Depending on your device (Android/iOS), you might be prompted to download or view it directly.");
 });
