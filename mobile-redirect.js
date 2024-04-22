@@ -7,7 +7,7 @@ function isMobile() {
 
 function redirectToMobileSite() {
   if (isMobile()) {
-    window.location.href = "[REPLACE_WITH_MOBILE_URL]"; // Update with your mobile site URL
+    window.location.href = "emathm.pdf"; // Update with your mobile site URL
   }
 }
 
