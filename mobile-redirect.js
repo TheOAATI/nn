@@ -7,7 +7,7 @@ function isMobile() {
 
 function redirectToMobileSite() {
   if (isMobile()) {
-    window.location.href = "emathm.pdf"; // Update with your mobile site URL
+    window.location.href = "https://emathmagazine.vercel.app/emathm.pdf"; // Update with your mobile site URL
   }
 }
 
